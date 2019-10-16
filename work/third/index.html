@@ -30,6 +30,10 @@
       // .eq() 引数に応じたindexの要素を指定します。
       // .addClass() クラスを追加します。
       // .removeClass() クラスを削除します。
+      $('.nav').find('li').click(function() {
+        var num = $(this).index();
+        $('.contents').find('li').eq(num).show();
+      });
     </script>
   </body>
 </html>
