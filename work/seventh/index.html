@@ -39,10 +39,10 @@
         var img_width =　$('.slider-list img').width();//imgのwidthの変数指定
         var $slider = $('.slider-list');
         var sliders = [];//位置のleft値の配列
-        for(var i=0; i<lastPage+1; i++){
+        for(var i=0; i<lastPage+1; i++){//left値計算
           sliders.push(img_width * -i);
         }
-        var page = 0;
+        var page = 0;//pageの初期値指定
         //ページ切換用関数作成
         $('.slider-ctrl-btn').click(function() {
           var data =$(this).data('ctrl');//クリックしたボタンのデータを取得
