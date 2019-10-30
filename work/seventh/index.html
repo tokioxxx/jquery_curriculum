@@ -34,6 +34,39 @@
       // .data() 要素のdata属性を取得します。
       // .width() 要素の幅を取得します。
       // .length 要素の個数を取得します。
+      $(function(){     
+        var lastPage = parseInt($(".slider-list img").length-1);//イメージの数を最後のページ数として変数化
+        var img_width =　$('.slider-list img').width();//imgのwidthの変数指定
+        var $slider = $('.slider-list');
+        var sliders = [];//位置のleft値の配列
+        for(var i=0; i<lastPage+1; i++){
+          sliders.push(img_width * -i);
+        }
+        var page = 0;
+        //ページ切換用関数作成
+        $('.slider-ctrl-btn').click(function() {
+          var data =$(this).data('ctrl');//クリックしたボタンのデータを取得
+          if (data == 'next'){
+            if (page == lastPage){
+              page = 0;
+              $slider.animate({left:sliders[page]});
+            }else {
+              page ++;
+              $slider.animate({left:sliders[page]});
+            }
+          };
+          if (data == 'prev'){
+            if (page == 0){
+              page = 3;
+              $slider.animate({left:sliders[page]});
+            }
+            else {
+              page --;
+              $slider.animate({left: sliders[page]});
+            };
+          };
+        });
+      }); 
     </script>
   </body>
 </html>
